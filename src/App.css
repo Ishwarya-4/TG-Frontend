@@ -1,0 +1,27 @@
+body {
+  background-color: #f3e6f5; /* Light lilac background color */
+  color: #333; /* Darker text color for better readability */
+}
+
+.container {
+  max-width: 1000px;
+}
+
+.card {
+  border-radius: 10px;
+  background-color: #fff; /* White background for cards */
+  margin-bottom: 20px; /* Space between cards */
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.btn {
+  margin: 10px 0;
+}
