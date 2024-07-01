@@ -52,16 +52,31 @@ function App() {
     setErrors({});
   };
 
+  // const parseAndFormatDate = (dateString) => {
+  //   const date = new Date(dateString);
+  //   if (isNaN(date.getTime())) {
+  //     return null;
+  //   }
+  //   return date.toISOString().split('T')[0]; // Format to YYYY-MM-DD
+  // };
+
+  // const formatDate = (dateString) => {
+  //   const date = new Date(dateString);
+  //   const options = { day: '2-digit', month: 'short', year: 'numeric' };
+  //   return date.toLocaleDateString('en-GB', options).replace(/ /g, '-');
+  // };
+
   const parseAndFormatDate = (dateString) => {
-    const date = new Date(dateString);
+    const sanitizedDateString = dateString.replace(/(^"|"$)/g, '');
+    const date = new Date(`${sanitizedDateString}T00:00:00Z`);
     if (isNaN(date.getTime())) {
       return null;
     }
-    return date.toISOString().split('T')[0]; // Format to YYYY-MM-DD
+    return date.toISOString().split('T')[0];
   };
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString);
+    const date = new Date(`${dateString}T00:00:00Z`);
     const options = { day: '2-digit', month: 'short', year: 'numeric' };
     return date.toLocaleDateString('en-GB', options).replace(/ /g, '-');
   };
